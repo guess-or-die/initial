@@ -1,0 +1,10 @@
+*{font-family: sans-serif}
+#output{}
+#stage{}
+#letters{}
+#turns-total{}
+#hint{}
+#current-guess{}
+body{
+    background-color:aquamarine;
+}
