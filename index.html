@@ -7,9 +7,16 @@
     <title>Guess or Die</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <section id="output">This is the output that will show how far along the player is</section>
-    <section id="stage">This is where the stage will go to show player progress</section>
+    <section id="output">
+        This is the output that will show how far along the player is
+    </section>
+
+    <section id="stage">
+        This is where the stage will go to show player progress
+    </section>
+
     <aside id="heads-up-display">
         <section id="turns-total">
                 PLACE TOTAL NUMBER OF TURNS HERE
@@ -21,12 +28,15 @@
                 PLACE HINT HERE
         </section>
     </aside>
+
     <section id="current-guess">
         <input type="text" name="guess" value="guess" id="guess"/>
-        <button type="submit">SUBMIT</button>
+        <button onclick="getRandomWord()" type="submit">SUBMIT</button>
         <button type="reset">RESET</button>
     </section>
 
+    <script src="words.js"></script>
+    <script src="app.js"></script>
     
 </body>
 </html>
