@@ -8,21 +8,23 @@
 // what if they submit more than one letter? or 0 letters
 
 
-// take that js file and select a random input from the array
 /* exported getRandomWord */
 var onload = words.slice();
 
-function getRandomWord () {
+function getRandomWord() {
     var index = getRandomIndex(words.length);
     //console.log(index);
     var retrievedWord = onload[index];
-    //console.log(retrievedWord);
-   
-    //figure out the length of the word
-    for (var 
+    console.log(retrievedWord, retrievedWord.length);
+    var output = document.getElementById('output');
+    output.textContent = retrievedWord.length;
+    
+    var convert = retrievedWord.length 
+}
+    
+//convert number into dashes
 
-    
-    
+
     
     //add a function that loads the retrievedWord into a game queue
     //get total number of letter ---is this a while loop? is this a for loop
@@ -31,8 +33,8 @@ function getRandomWord () {
     //get total number of turns
     //
 
-}
 
+    
 
 
 // based on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random

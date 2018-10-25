@@ -6,4 +6,4 @@ var words = [
     'galaxy',
     'periwinkle',
     'chartreuse'
-    ];
+];
