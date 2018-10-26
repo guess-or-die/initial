@@ -1,4 +1,4 @@
-/* global words */
+/* global words onload */
 
 // dynamic: turns total, letters, output, stage
 // inputs: submit
@@ -16,18 +16,20 @@ function getRandomWord() {
     //console.log(index);
     var retrievedWord = onload[index];
     //console.log(retrievedWord, retrievedWord.length);
-    
-    for(var i = 0; i < retrievedWord.length; i++) {
-        
-        var j = retrievedWord.length[i];
-        
-        
-        var output = document.getElementById('output');
-        output.textContent = ('_' + retrievedWord.length);
-        console.log(output); 
-        
+
+    var phrase = retrievedWord;
+
+    for(var j = 0; j < phrase.length; j++) {
+        console.log(phrase[j]);
     }
-}  
+
+
+    //var output = document.getElementById('output');
+    //output.textContent = (phrase + '_' + phrase.length);
+    //console.log(output); 
+
+
+}
 
 
 
@@ -35,20 +37,20 @@ function getRandomWord() {
 //convert number into dashes
 
 
-    
-    //add a function that loads the retrievedWord into a game queue
-    //get total number of letter ---is this a while loop? is this a for loop
-    //print letters container from to section id=output
-    //add a function from user input to compare with word in the queue
-    //get total number of turns
-    //
+
+//add a function that loads the retrievedWord into a game queue
+//get total number of letter ---is this a while loop? is this a for loop
+//print letters container from to section id=output
+//add a function from user input to compare with word in the queue
+//get total number of turns
+//
 
 
-    
+
 
 
 // based on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomIndex(length) {
     //The maximum is exclusive and the minimum (0) is inclusive
-    return Math.floor(Math.random() * length); 
+    return Math.floor(Math.random() * length);
 }
