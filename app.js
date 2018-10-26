@@ -15,13 +15,23 @@ function getRandomWord() {
     var index = getRandomIndex(words.length);
     //console.log(index);
     var retrievedWord = onload[index];
-    console.log(retrievedWord, retrievedWord.length);
-    var output = document.getElementById('output');
-    output.textContent = retrievedWord.length;
+    //console.log(retrievedWord, retrievedWord.length);
     
-    var convert = retrievedWord.length 
-}
-    
+    for(var i = 0; i < retrievedWord.length; i++) {
+        
+        var j = retrievedWord.length[i];
+        
+        
+        var output = document.getElementById('output');
+        output.textContent = ('_' + retrievedWord.length);
+        console.log(output); 
+        
+    }
+}  
+
+
+
+
 //convert number into dashes
 
 
