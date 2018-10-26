@@ -2,35 +2,34 @@
 /* exported onSubmit */
 /* exported loadGame */
 //initial empty array for individual letters
-var gameinit = words.slice();
+var gameInit = words.slice();
 var index = getRandomIndex(words.length);
-var phrase = gameinit[index].split('');
+var phrase = gameInit[index].split('');
 
 function loadGame() {
 
-    console.log(phrase);
     var output = document.getElementById('output');
     output.textContent = phrase.join(' ');
 }
-
+var guessTotals = [''];
 
 function onSubmit() {
-    var userGuess = document.getElementById('guess');
+    var userGuess = document.getElementById('answer-field');
     var elements = userGuess.elements;
 
     var guessInput = elements.guess;
     var theirGuess = guessInput.value;
 
+    for(var i = 0; i < phrase.length; i++) {
+        if(phrase[i] === theirGuess) {
+            //console.log('good choice');
+            guessTotals.push(phrase[i]);
+            console.log('this is your initial array ' + phrase);
+            console.log('this is your return array ' + guessTotals);
+        }
+    }
+    return false;
     
-    console.log(theirGuess);
-    
-    // var count = phrase.length;
-    // for (var i = 0; i < count; i++) {
-    //     if (phrase[i] === userGuess) {
-    //         console.log('good choice');
-    //     }
-    // }
-    // return false;
 }
 
 // log submission into array
