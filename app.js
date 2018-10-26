@@ -1,22 +1,19 @@
 /* global words onload */
 /* exported getRandomWord */
-var onload = words.slice();
 //initial empty array for individual letters
 var cheesecake = [];
 
 
 function getRandomWord() {
+    var onload = words.slice();
     var index = getRandomIndex(words.length);
-    var phrase = onload[index];
-
-    for(var j = 0; j < phrase.length; j++) {
-
-       //console.log(phrase[j]);
-    }
+    var phrase = onload[index].split('');
 
 
-    //var output = document.getElementById('output');
-    //output.textContent = (phrase[0] + '_' + phrase.length); //where phrase[j] is only giving us the last letter here 
+    console.log(phrase);
+    var output = document.getElementById('output');
+    output.textContent = phrase.join(' ');
+    
     //in the output, phrase[0] returns first letter, 
     //console.log(output); 
 }
@@ -26,7 +23,7 @@ function getRandomWord() {
 
 //similar working ref: https://stackoverflow.com/questions/8131838/returning-values-out-of-for-loop-in-javascript
 // function getId(a){
-//     var aL = a.length;
+    //     var aL = a.length;
 //     var values = [];
 //     for(i = 0; i < aL; i++ ){
 //       values.push(a[i][2].split(":", 1)[0]);
