@@ -20,13 +20,16 @@ function getRandomWord() {
     var phrase = retrievedWord;
 
     for(var j = 0; j < phrase.length; j++) {
-        console.log(phrase[j]);
+        //console.log(phrase[j]);        //Hey Paige, if we turn everything off after 
+                                         //this, the console log spilts out all the letters in the loop
+        
+        var output = document.getElementById('output');
+        output.textContent = (phrase[index] + '_' + phrase.length); //where phrase[j] is only giving us the last letter here 
+                                                                   //in the output, phrase[0] returns first letter, 
+        //console.log(output); 
     }
 
 
-    //var output = document.getElementById('output');
-    //output.textContent = (phrase + '_' + phrase.length);
-    //console.log(output); 
 
 
 }
