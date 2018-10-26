@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="loadGame()">
     <section id="output">
         This is the output that will show how far along the player is
     </section>
@@ -31,7 +31,7 @@
 
     <section id="current-guess">
         <input type="text" name="guess" value="guess" id="guess"/>
-        <button onclick="getRandomWord()" type="submit">SUBMIT</button>
+        <button onclick="onSubmit()" type="submit">SUBMIT</button>
         <button type="reset">RESET</button>
     </section>
 
