@@ -8,14 +8,19 @@ var phrase = gameInit[index].split('');
 var linesplatz = phrase.length;
 
 function loadGame() {
-    var output = document.getElementById('output');
-    //console.log(phrase);
-    //output.textContent = linesplatz;
-    
-    for(var i = 0; i < phrase.length; i++) {
-    //get the length of the word before gameplay and issue total number of tiles
-    
-
+    // var output = document.getElementById('output');
+    console.log(phrase);
+    //output.textContent = phrase.join(' ');
+    var tally = document.querySelectorAll('.letter');
+   //console.log(tally);
+    for(var i = 0; i < tally.length; i++){
+        var li = tally[i];
+        if(i < phrase.length) {
+            li.classList.remove('hidden');
+        }
+        else {
+            li.classList.add('hidden');
+        }
     }
 }
 var guessTotals = [''];

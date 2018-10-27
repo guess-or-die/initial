@@ -1,5 +1,22 @@
-*{font-family: sans-serif}
-#output{}
+*{
+    font-family: sans-serif;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+li {
+    list-style: none;
+    padding: 0;
+} 
+
+.hidden {
+    display: none;
+}
+
 #stage{}
 #letters{}
 #turns-total{}
@@ -8,3 +25,4 @@
 body{
     background-color:aquamarine;
 }
+
