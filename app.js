@@ -5,26 +5,27 @@
 var gameInit = words.slice();
 var index = getRandomIndex(words.length);
 var phrase = gameInit[index].split('');
-var linesplatz = phrase.length;
+
 
 function loadGame() {
     // var output = document.getElementById('output');
     console.log(phrase);
     //output.textContent = phrase.join(' ');
     var tally = document.querySelectorAll('.letter');
-   //console.log(tally);
-    for(var i = 0; i < tally.length; i++){
+    //console.log(tally);
+    for(var i = 0; i < tally.length; i++) {
         var li = tally[i];
         if(i < phrase.length) {
             li.classList.remove('hidden');
-        }
+        } 
         else {
             li.classList.add('hidden');
         }
     }
 }
-var guessLetters = [''];
+var correctLetters = [''];
 var guessCount = 0;
+var guessedLetters = [''];
 
 function onSubmit() {
     var userGuess = document.getElementById('answer-field');
@@ -33,35 +34,57 @@ function onSubmit() {
     var theirGuess = submit.value;
     var turnsTotal = document.getElementById('turns-total');
 
-    // for(var i = 0; i < phrase.length; i++) {
-    if(phrase[i] === theirGuess) {
-        guessLetters.push(phrase[i]);
-        turnsTotal.textContent = 'good choice!';
+    for(var i = 0; i < phrase.length; i++) {
+        if(phrase[i] === theirGuess) {
+            correctLetters.push(phrase[i]);
+            turnsTotal.textContent = 'good choice!';
+
+            console.log('this is your initial array ' + phrase);
+            console.log('this is your return array ' + correctLetters);
+        }
+    }
         
-        console.log('this is your initial array ' + phrase);
-        console.log('this is your return array ' + guessLetters);
-    }
-    else {
-        guessCount = guessCount + 1;
-        console.log(guessCount);
-
-        if(guessCount < 6){
-            turnsTotal.textContent = 'try again!';
-        }
-        else {
-            turnsTotal.textContent = 'you lose. sorry!';
-            submit.disabled = true;
-        }
-    }
-}
+    guessedLetters.push(theirGuess);
+    console.log(guessedLetters);
+    var letterLog = document.getElementById('letters');
     
-// }
+    letterLog.textContent = guessedLetters.join(' ');
+        
+        // else {
+            //     guessCount = guessCount + 1;
+            //     console.log(guessCount);
+            // }
+            
+            //     if(guessCount < 6){
+                //         turnsTotal.textContent = 'try again!';
+                //     }
+                //     else {
+                    //         turnsTotal.textContent = 'you lose. sorry!';
+                    //         submit.disabled = true;
+                    //     }
+                    // }
+}
+                
+var letters = document.querySelectorAll('.letter');
 
-// log submission into array
+for(var i = 0; i < letters.length; i++)
+    var li = letters[i];
+var letterToDisplay = correctLetters[i];
+
+if(i < correctLetters.length) {
+    li.textContent = letterToDisplay;
+    // li.classList.remove('hidden');
+} 
+else {
+    // li.classList.add('hidden');
+}
+
+
+
 
 //if submit button contains letter that is in the word(array), show letter
 
-//pop off letter from array .pop() - game is done when no more letters in array!
+//splice off letter from array .pop() - game is done when no more letters in array!
 
 //if letter is not, create alert
 
