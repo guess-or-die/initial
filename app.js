@@ -35,6 +35,7 @@ function onSubmit() {
         if(phrase[i] === theirGuess) {
             //console.log('good choice');
             guessTotals.push(phrase[i]);
+
             console.log('this is your initial array ' + phrase);
             console.log('this is your return array ' + guessTotals);
         }
@@ -42,6 +43,20 @@ function onSubmit() {
     return false;
     
 }
+
+var items = document.querySelectorAll('.pair');
+for(var i = 0; i < items.length; i++) {
+    var li = items[i];
+    var pairToDisplay = bananas[i];
+    if(i < pairs.length) {
+        li.textContent = pairToDisplay;
+        li.classList.remove('hidden');
+    }
+    else {
+        li.classList.add('hidden');
+    }
+}
+
 
 // log submission into array
 
