@@ -5,6 +5,7 @@
 var gameInit = words.slice();
 var index = getRandomIndex(words.length);
 var phrase = gameInit[index].split('');
+var linesplatz = phrase.length;
 
 function loadGame() {
     // var output = document.getElementById('output');
