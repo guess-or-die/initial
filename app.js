@@ -1,6 +1,7 @@
 /* global words */
 /* exported onSubmit */
 /* exported loadGame */
+/* exported resetButton */
 //initial empty array for individual letters
 var gameInit = words.slice();
 var index = getRandomIndex(words.length);
@@ -26,9 +27,9 @@ function loadGame() {
 var correctLetters = [''];
 var guessCount = 0;
 var guessedLetters = [''];
+var userGuess = document.getElementById('answer-field');
 
 function onSubmit() {
-    var userGuess = document.getElementById('answer-field');
     var elements = userGuess.elements;
     var submit = elements.guess;
     var theirGuess = submit.value;
@@ -45,24 +46,8 @@ function onSubmit() {
     }
         
     guessedLetters.push(theirGuess);
-    console.log(guessedLetters);
     var letterLog = document.getElementById('letters');
-    
-    letterLog.textContent = guessedLetters.join(' ');
-        
-        // else {
-            //     guessCount = guessCount + 1;
-            //     console.log(guessCount);
-            // }
-            
-            //     if(guessCount < 6){
-                //         turnsTotal.textContent = 'try again!';
-                //     }
-                //     else {
-                    //         turnsTotal.textContent = 'you lose. sorry!';
-                    //         submit.disabled = true;
-                    //     }
-                    // }
+    letterLog.textContent = guessedLetters.join(' ');       
 }
                 
 var letters = document.querySelectorAll('.letter');
@@ -79,7 +64,9 @@ else {
     // li.classList.add('hidden');
 }
 
-
+function resetButton() {
+    userGuess.reset;
+}
 
 
 //if submit button contains letter that is in the word(array), show letter
