@@ -5,9 +5,10 @@
 var gameInit = words.slice();
 var index = getRandomIndex(words.length);
 var phrase = gameInit[index].split('');
-var linesplatz = phrase.length;
+
 
 function loadGame() {
+    //Is it too soon to clean up the comment notes in the function loadGame?  Are we using this?
     // var output = document.getElementById('output');
     console.log(phrase);
     //output.textContent = phrase.join(' ');
@@ -23,7 +24,7 @@ function loadGame() {
         }
     }
 }
-var guessTotals = [''];
+var guessTotals = [];
 
 function onSubmit() {
     var userGuess = document.getElementById('answer-field');
@@ -32,7 +33,7 @@ function onSubmit() {
     var guessInput = elements.guess;
     var theirGuess = guessInput.value;
     
-    for(var i = 0; i < linesplatz; i++) {
+    for(var i = 0; i < phrase.length; i++) {
         if(phrase[i] === theirGuess) {
             //console.log('good choice');
             guessTotals.push(phrase[i]);
@@ -45,13 +46,10 @@ function onSubmit() {
     
 }
 
-// log submission into array
+
 
 //if submit button contains letter that is in the word(array), show letter
-
-//pop off letter from array .pop() - game is done when no more letters in array!
-
-//if letter is not, create alert
+ //if letter is not in word, create alert
 
 
 
