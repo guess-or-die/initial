@@ -9,11 +9,8 @@ var phrase = gameInit[index].split('');
 
 
 function loadGame() {
-    // var output = document.getElementById('output');
     console.log(phrase);
-    //output.textContent = phrase.join(' ');
     var tally = document.querySelectorAll('.letter');
-    //console.log(tally);
     for(var i = 0; i < tally.length; i++) {
         var li = tally[i];
         if(i < phrase.length) {
@@ -25,7 +22,7 @@ function loadGame() {
     }
 }
 var correctLetters = [''];
-var guessCount = 0;
+var guessCount = 6;
 var guessedLetters = [''];
 var userGuess = document.getElementById('answer-field');
 
@@ -34,35 +31,56 @@ function onSubmit() {
     var submit = elements.guess;
     var theirGuess = submit.value;
     var turnsTotal = document.getElementById('turns-total');
+    //var ul = document.getElementByTagName ('ul');
+    //var li = ul[0].getElementByTagName('li');
+    
 
     for(var i = 0; i < phrase.length; i++) {
         if(phrase[i] === theirGuess) {
             correctLetters.push(phrase[i]);
             turnsTotal.textContent = 'good choice!';
-
-            console.log('this is your initial array ' + phrase);
-            console.log('this is your return array ' + correctLetters);
+            //li[i].pull(correctLetters.innerHTML);
         }
-    }
+        else {
+            turnsTotal.textContent = 'try again';
+        }
+            
+                 
         
+    }
     guessedLetters.push(theirGuess);
     var letterLog = document.getElementById('letters');
-    letterLog.textContent = guessedLetters.join(' ');       
+    letterLog.textContent = guessedLetters.join(' ');  
+
+    console.log('this is your initial array ' + phrase);
+    console.log('this is your return array ' + correctLetters);
 }
+
+
+        
+
+    
+    
+    
+    // var letters = document.querySelectorAll('.letter');
+   
+
                 
-var letters = document.querySelectorAll('.letter');
 
-for(var i = 0; i < letters.length; i++)
-    var li = letters[i];
-var letterToDisplay = correctLetters[i];
 
-if(i < correctLetters.length) {
-    li.textContent = letterToDisplay;
-    // li.classList.remove('hidden');
-} 
-else {
-    // li.classList.add('hidden');
-}
+
+
+// for(var i = 0; i < letters.length; i++)
+//     var li = letters[i];
+// var letterToDisplay = correctLetters[i];
+
+// if(i < correctLetters.length) {
+//     li.textContent = letterToDisplay;
+//     // li.classList.remove('hidden');
+// } 
+// else {
+//     // li.classList.add('hidden');
+// }
 
 function resetButton() {
     userGuess.reset;
