@@ -37,6 +37,7 @@ function onSubmit() {
 
     for(var i = 0; i < phrase.length; i++) {
         if(phrase[i] === theirGuess) {
+            
             correctLetters.push(phrase[i]);
             turnsTotal.textContent = 'good choice!';
             //li[i].pull(correctLetters.innerHTML);
