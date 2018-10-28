@@ -22,26 +22,39 @@ function loadGame() {
         }
     }
 }
-var guessTotals = [''];
+var guessLetters = [''];
+var guessCount = 0;
 
 function onSubmit() {
     var userGuess = document.getElementById('answer-field');
     var elements = userGuess.elements;
+    var submit = elements.guess;
+    var theirGuess = submit.value;
+    var turnsTotal = document.getElementById('turns-total');
 
-    var guessInput = elements.guess;
-    var theirGuess = guessInput.value;
+    // for(var i = 0; i < phrase.length; i++) {
+    if(phrase[i] === theirGuess) {
+        guessLetters.push(phrase[i]);
+        turnsTotal.textContent = 'good choice!';
+        
+        console.log('this is your initial array ' + phrase);
+        console.log('this is your return array ' + guessLetters);
+    }
+    else {
+        guessCount = guessCount + 1;
+        console.log(guessCount);
 
-    for(var i = 0; i < phrase.length; i++) {
-        if(phrase[i] === theirGuess) {
-            //console.log('good choice');
-            guessTotals.push(phrase[i]);
-            console.log('this is your initial array ' + phrase);
-            console.log('this is your return array ' + guessTotals);
+        if(guessCount < 6){
+            turnsTotal.textContent = 'try again!';
+        }
+        else {
+            turnsTotal.textContent = 'you lose. sorry!';
+            submit.disabled = true;
         }
     }
-    return false;
-    
 }
+    
+// }
 
 // log submission into array
 
@@ -60,4 +73,3 @@ function getRandomIndex(length) {
     //The maximum is exclusive and the minimum (0) is inclusive
     return Math.floor(Math.random() * length);
 }
-    
