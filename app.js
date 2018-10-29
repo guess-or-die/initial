@@ -41,8 +41,16 @@ function onSubmit() {
             // break;
         }
         else {
-            // turnsTotal.textContent = 'keep guessing!';
+
         }
+            turnsTotal.textContent = 'try again';
+            //console.log('good choice');
+          
+            guessTotals.push(phrase[i]);
+
+            console.log('this is your initial array ' + phrase);
+            console.log('this is your return array ' + guessTotals);
+        }              
     }
     guessedLetters.push(theirGuess);
     var letterLog = document.getElementById('letters');
