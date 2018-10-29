@@ -36,11 +36,12 @@ function onSubmit() {
     for(var i = 0; i < phrase.length; i++) {
         if(phrase[i] === theirGuess) {
             correctLetters.push(phrase[i]);
-            turnsTotal.textContent = 'you win!!';
-            //li[i].pull(correctLetters.innerHTML);
+            var li = document.getElementById('letter-' + i);
+            li.textContent = theirGuess;
+            // break;
         }
         else {
-            turnsTotal.textContent = 'keep guessing!';
+            // turnsTotal.textContent = 'keep guessing!';
         }
     }
     guessedLetters.push(theirGuess);
