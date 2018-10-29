@@ -34,31 +34,34 @@ function onSubmit() {
     //var li = ul[0].getElementByTagName('li'); 
 
     for(var i = 0; i < phrase.length; i++) {
-        if(phrase[i] === theirGuess) {
+        if(phrase[i] === theirGuess.toLowerCase()) {
             correctLetters.push(phrase[i]);
             var li = document.getElementById('letter-' + i);
             li.textContent = theirGuess;
+            turnsTotal.textContent = 'KEEP GOING!';
             // break;
         }
         else {
+            turnsTotal.textContent = 'TRY AGAIN';
 
-        }
-            turnsTotal.textContent = 'try again';
-            //console.log('good choice');
-          
-            guessTotals.push(phrase[i]);
-
-            console.log('this is your initial array ' + phrase);
-            console.log('this is your return array ' + guessTotals);
-        }              
     }
-    guessedLetters.push(theirGuess);
-    var letterLog = document.getElementById('letters');
-    letterLog.textContent = guessedLetters.join(' ');  
+}    //Todo list :  capital v lowercase treat exactly
+    //duplicate letter        
+    //console.log('good choice');
+
+    // guessTotals.push(phrase[i]);
 
     console.log('this is your initial array ' + phrase);
-    console.log('this is your return array ' + correctLetters);
+    // console.log('this is your return array ' + guessTotals);
 }
+var theirGuess = submit.value;
+guessedLetters.push(theirGuess);
+var letterLog = document.getElementById('letters');
+letterLog.textContent = guessedLetters.join(' ');  
+
+console.log('this is your initial array ' + phrase);
+console.log('this is your return array ' + correctLetters);
+
 
 function resetButton() {
     userGuess.reset;
