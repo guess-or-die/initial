@@ -37,17 +37,20 @@ function onSubmit() {
 
     for(var i = 0; i < phrase.length; i++) {
         if(phrase[i] === theirGuess) {
-            
+           
             correctLetters.push(phrase[i]);
             turnsTotal.textContent = 'good choice!';
             //li[i].pull(correctLetters.innerHTML);
         }
         else {
             turnsTotal.textContent = 'try again';
-        }
-            
-                 
-        
+            //console.log('good choice');
+          
+            guessTotals.push(phrase[i]);
+
+            console.log('this is your initial array ' + phrase);
+            console.log('this is your return array ' + guessTotals);
+        }              
     }
     guessedLetters.push(theirGuess);
     var letterLog = document.getElementById('letters');
@@ -56,20 +59,6 @@ function onSubmit() {
     console.log('this is your initial array ' + phrase);
     console.log('this is your return array ' + correctLetters);
 }
-
-
-        
-
-    
-    
-    
-    // var letters = document.querySelectorAll('.letter');
-   
-
-                
-
-
-
 
 // for(var i = 0; i < letters.length; i++)
 //     var li = letters[i];
@@ -88,14 +77,24 @@ function resetButton() {
 }
 
 
+var items = document.querySelectorAll('.pair');
+for(var i = 0; i < items.length; i++) {
+    var li = items[i];
+    var pairToDisplay = bananas[i];
+    if(i < pairs.length) {
+        li.textContent = pairToDisplay;
+        li.classList.remove('hidden');
+    }
+    else {
+        li.classList.add('hidden');
+    }
+}
+
 //if submit button contains letter that is in the word(array), show letter
 
 //splice off letter from array .pop() - game is done when no more letters in array!
 
 //if letter is not, create alert
-
-
-
 
 
 // based on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
