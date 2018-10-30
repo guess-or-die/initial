@@ -2,6 +2,7 @@
 /* exported onSubmit */
 /* exported loadGame */
 /* exported resetButton */
+
 //initial empty array for individual letters
 var gameInit = words.slice();
 var index = getRandomIndex(words.length);
@@ -21,7 +22,7 @@ function loadGame() {
     }
 }
 var correctLetters = [''];
-var guessCount = 6;
+var guessCount = 0;
 var guessedLetters = [''];
 var userGuess = document.getElementById('answer-field');
 
@@ -29,36 +30,35 @@ function onSubmit() {
     var elements = userGuess.elements;
     var submit = elements.guess;
     var theirGuess = submit.value;
-    var turnsTotal = document.getElementById('turns-total');
-    //var ul = document.getElementByTagName ('ul');
-    //var li = ul[0].getElementByTagName('li'); 
 
     for(var i = 0; i < phrase.length; i++) {
         if(phrase[i] === theirGuess.toLowerCase()) {
             correctLetters.push(phrase[i]);
             var li = document.getElementById('letter-' + i);
             li.textContent = theirGuess;
-            turnsTotal.textContent = 'KEEP GOING!';
-            // break;
         }
-        else {
-            turnsTotal.textContent = 'TRY AGAIN';
-
     }
-}    //Todo list :  capital v lowercase treat exactly
-    //duplicate letter        
-    //console.log('good choice');
-
-    // guessTotals.push(phrase[i]);
-
+    guessCount += 1;
+    
+    console.log(guessCount);
+    
+    
+    var turnsTotal = document.getElementById('turns-total');
+    var triesLeft = 6 - guessCount;
+    turnsTotal.textContent = 'You have ' + triesLeft + ' tries left';
+    if(guessCount === 6){
+        turnsTotal.textContent = 'TRY BETTER NEXT TIME LOSER';
+        
+    }   
     console.log('this is your initial array ' + phrase);
-    // console.log('this is your return array ' + guessTotals);
-}
-var theirGuess = submit.value;
-guessedLetters.push(theirGuess);
-var letterLog = document.getElementById('letters');
-letterLog.textContent = guessedLetters.join(' ');  
+    guessedLetters.push(theirGuess);
+    var letterLog = document.getElementById('letters');
+    letterLog.textContent = guessedLetters.join(' ');  
+    
 
+    
+}
+ 
 console.log('this is your initial array ' + phrase);
 console.log('this is your return array ' + correctLetters);
 
@@ -77,4 +77,8 @@ function resetButton() {
 function getRandomIndex(length) {
     //The maximum is exclusive and the minimum (0) is inclusive
     return Math.floor(Math.random() * length);
+          
+    
+
+
 }
