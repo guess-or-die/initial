@@ -17,12 +17,25 @@ li {
     display: none;
 }
 
-#stage{}
-#letters{}
-#turns-total{}
-#hint{}
-#current-guess{}
+#stage{
+
+}
+
+
+
+p {
+   font-size: 12px;
+}
+
+#turns-total{
+
+}
+
+#current-guess{
+
+}
+
 body{
-    background-color:aquamarine;
+    background-color:lightgray;
 }
 
