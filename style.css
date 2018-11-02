@@ -17,8 +17,46 @@ li {
     display: none;
 }
 
-#stage{
+img {
+    width: 400px;
+}
 
+#gallows-0 {
+    position: absolute;
+    z-index: 0;
+}
+
+#gallows-1 {
+    position: absolute;
+    z-index: 1;
+}
+#gallows-2 {
+    position: absolute;
+    z-index: 2;
+}
+
+#gallows-3 {
+    position: absolute;
+    z-index: 3;
+}
+
+#gallows-4 {
+    position: absolute;
+    z-index: 4;
+}
+
+#gallows-5 {
+    position: absolute;
+    z-index: 5;
+}
+
+#gallows-6 {
+    position: absolute;
+    z-index: 6;
+}
+
+#stage{
+    margin: 20px;
 }
 
 p {
@@ -35,10 +73,6 @@ header {
     text-transform: uppercase;
     font-size: 14px;
     margin: 10px 0px 20px 0px;
-}
-
-#current-guess{
-
 }
 
 body{
