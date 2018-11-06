@@ -3,13 +3,14 @@
 /* exported loadGame */
 /* exported resetButton */
 
-//initial empty array for individual letters
 var gameInit = words.slice();
 var index = getRandomIndex(words.length);
 var phrase = gameInit[index].split('');
+var form = document.getElementById('answer-field');
+
+console.log(phrase);
 
 function loadGame() {
-    console.log(phrase);
     var tally = document.querySelectorAll('.letter');
     for(var i = 0; i < tally.length; i++) {
         var li = tally[i];
@@ -22,63 +23,57 @@ function loadGame() {
     }
 }
 var correctLetters = [''];
-var guessCount = 0;
 var guessedLetters = [''];
 var userGuess = document.getElementById('answer-field');
+var guessCount = 0;
 
 function onSubmit() {
     var elements = userGuess.elements;
     var submit = elements.guess;
     var theirGuess = submit.value;
 
-    for(var i = 0; i < phrase.length; i++) {
-        if(phrase[i] === theirGuess.toLowerCase()) {
-            correctLetters.push(phrase[i]);
-            var li = document.getElementById('letter-' + i);
-            li.textContent = theirGuess;
+    if(phrase.includes(theirGuess)){
+        for(var i = 0; i < phrase.length; i++) {
+            if(phrase[i] === theirGuess.toLowerCase()) {
+                correctLetters.push(phrase[i]);
+                var li = document.getElementById('letter-' + i);
+                li.textContent = theirGuess;
+            }
+        }
+        if(correctLetters === phrase){
+            turnsTotal.textContent = 'YOU WIN!';
+            console.log('you win!');
         }
     }
-    guessCount += 1;
+    else {
+        guessCount++;
+        var turnsTotal = document.getElementById('turns-total');
+        var triesLeft = 6 - guessCount;
+        turnsTotal.textContent = 'You have ' + triesLeft + ' tries left';
+        var lis = document.getElementById('gallows-' + guessCount);
+        lis.classList.toggle('hidden'); 
+    }
     
-    console.log(guessCount);
-    
-    
-    var turnsTotal = document.getElementById('turns-total');
-    var triesLeft = 6 - guessCount;
-    turnsTotal.textContent = 'You have ' + triesLeft + ' tries left';
+   
     if(guessCount === 6){
         turnsTotal.textContent = 'TRY BETTER NEXT TIME LOSER';
-        
+        submit.disabled = true;
     }   
-    console.log('this is your initial array ' + phrase);
+
+
+    form.reset();
+        
     guessedLetters.push(theirGuess);
     var letterLog = document.getElementById('letters');
-    letterLog.textContent = guessedLetters.join(' ');  
-    
-
-    
+    letterLog.textContent = guessedLetters.join(' ');     
 }
- 
-console.log('this is your initial array ' + phrase);
-console.log('this is your return array ' + correctLetters);
-
 
 function resetButton() {
     userGuess.reset;
 }
 
-//if submit button contains letter that is in the word(array), show letter
-
-//splice off letter from array .pop() - game is done when no more letters in array!
-
-//if letter is not, create alert
-
 // based on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomIndex(length) {
     //The maximum is exclusive and the minimum (0) is inclusive
     return Math.floor(Math.random() * length);
-          
-    
-
-
 }

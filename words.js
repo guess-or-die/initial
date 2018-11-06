@@ -4,6 +4,7 @@ var words = [
     'rhythm',
     'biscuit',
     'galaxy',
-    'periwinkle',
-    'chartreuse'
+    'caches',
+    'cactus',
+    'cyprus'
 ];
